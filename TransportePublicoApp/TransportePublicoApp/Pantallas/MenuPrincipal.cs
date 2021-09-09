@@ -128,7 +128,7 @@ namespace TransportePublicoApp.Pantallas
         {
             {
                 Console.Clear();
-                Console.WriteLine("Poniemdo en Marcha...");
+                Console.WriteLine("Deteniendo Marcha...");
                 Console.WriteLine("=======================================================================================================================================");
 
                 if (Transportes.GetTaxis().Count != 0)

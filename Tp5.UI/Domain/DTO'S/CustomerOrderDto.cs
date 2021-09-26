@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain.DTO_S
+{
+    public class CustomerOrderDto
+    {
+        public string NombreCompania { get; set; }
+        public int IdOrden { get; set; }
+    }
+}

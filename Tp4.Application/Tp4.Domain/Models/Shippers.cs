@@ -3,11 +3,13 @@ namespace Tp4.Domain.Models
     
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
-
+    using System.Runtime.Serialization;
+    //[DataContract(IsReference = true)]
     public partial class Shippers
     {
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+       
         public Shippers()
         {
             Orders = new HashSet<Orders>();

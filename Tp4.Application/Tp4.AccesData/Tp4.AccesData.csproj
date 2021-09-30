@@ -67,10 +67,10 @@
     <Compile Include="Configurations\TerritoriesConfiguration.cs" />
     <Compile Include="NorthwindContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\CompaniasEnvios.cs" />
+    <Compile Include="Queries\CompaniasEnviosQuery.cs" />
     <Compile Include="Queries\NombreClienteOrdenProducto.cs" />
     <Compile Include="Queries\NombreClientesQuery.cs" />
-    <Compile Include="Queries\Repository\ICompaniasEnvios.cs" />
+    <Compile Include="Queries\Repository\ICompaniasEnviosQuery.cs" />
     <Compile Include="Queries\Repository\INombreClienteOrdenProducto.cs" />
     <Compile Include="Queries\Repository\INombreClienteQuery.cs" />
     <Compile Include="Validations\ShipperValidator.cs" />

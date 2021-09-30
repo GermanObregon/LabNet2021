@@ -158,7 +158,7 @@ namespace Tp4.Application
                                 Phone = listaShippers[selec - 1].Phone
                             };
                             GenericRepository repositorio = new GenericRepository();
-                            repositorio.Delete<Shippers>(borrarShipper);
+                            //repositorio.Delete<Shippers>(borrarShipper);
                             Console.WriteLine("Se Borro con exito");
                             Thread.Sleep(3000);
                             Run();
@@ -191,7 +191,7 @@ namespace Tp4.Application
         private static List<Shippers> ListarShippers()
         {
             Console.Clear();
-            CompaniasEnvios consulta = new CompaniasEnvios();
+            CompaniasEnviosQuery consulta = new CompaniasEnviosQuery();
             Console.WriteLine("Companias Existentes: \n");
             int contador = 1;
             foreach (Shippers item in consulta.GetShippers())

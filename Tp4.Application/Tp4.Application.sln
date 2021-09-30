@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp4.AccesData", "Tp4.AccesD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp4.Domain", "Tp4.Domain\Tp4.Domain.csproj", "{C480D2E9-15CA-437A-AEFB-71D37E4F8695}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp7.Service", "Tp7.Service\Tp7.Service.csproj", "{9F7DA9B6-5062-4941-9C50-752D8FB3C7E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp7.Web.UI.MVC", "Tp7.Web.UI.MVC\Tp7.Web.UI.MVC.csproj", "{2D8F5967-6A90-4B42-910F-8D859524E606}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +31,20 @@ Global
 		{C480D2E9-15CA-437A-AEFB-71D37E4F8695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C480D2E9-15CA-437A-AEFB-71D37E4F8695}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C480D2E9-15CA-437A-AEFB-71D37E4F8695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F7DA9B6-5062-4941-9C50-752D8FB3C7E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F7DA9B6-5062-4941-9C50-752D8FB3C7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F7DA9B6-5062-4941-9C50-752D8FB3C7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F7DA9B6-5062-4941-9C50-752D8FB3C7E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8F5967-6A90-4B42-910F-8D859524E606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8F5967-6A90-4B42-910F-8D859524E606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8F5967-6A90-4B42-910F-8D859524E606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8F5967-6A90-4B42-910F-8D859524E606}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 		SolutionGuid = {E5F73910-E56C-4868-8930-683CF1B82AB2}
 	EndGlobalSection
 EndGlobal

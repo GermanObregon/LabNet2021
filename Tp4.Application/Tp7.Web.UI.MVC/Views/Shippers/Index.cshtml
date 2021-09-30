@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row m-4">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                ABMC de la Tabla Shippers
+            </div>
+            <div class="card-body">
+                <table id="tableShippers" class="display responsive nowrap " style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nombre de la Coampañia</th>
+                            <th>Telefono</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" class="form-control" id="IdShipper">
+                    <div class="mb-3">
+                        <label for="NombreCompania" class="col-form-label">Nombre Compañia:</label>
+                        <input type="text" class="form-control" id="NombreCompania">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Telefono" class="col-form-label">Telefono:</label>
+                        <input type="text" class="form-control" id="Telefono">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var Tabla;
+        $(document).ready(function () {
+            Tabla = $('#tableShippers').DataTable({
+                "ajax": {
+                    "url": "@Url.Action("GetAll" , "Shippers")",
+                    "type": "GET",
+                    "datatype": "json",
+                    "dataSrc" : "lista"
+                },
+                "columns": [
+                    { "data": "NombreCompania" },
+                    { "data": "Telefono" },
+                    {
+                        "data": "IdShipper", "render": function (data) {
+                            return "<button class = 'btn btn-primary btn-sm' type = 'button' onclick = 'AbrirModal(" + data +")'><i class = 'fas fa-pen'></i></button>" +
+                                "<button class = 'btn btn-danger btn-sm ml-2' type = 'button' onclick = 'Eliminar(" + data +")'><i class = 'fas fa-trash'></i></button>"
+                        },
+                        "orderable" : false,
+                        "searchable" : false,
+                        "width" :  "150px"
+                    },
+
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        text: 'Agregar Nuevo',
+                        attr: { class : 'btn btn-success btn-sm' },
+                        action: function (e, dt, node, config) {
+                            AbrirModal(0);
+                        }
+                    }
+
+                ],
+            });
+
+
+
+        });
+        function AbrirModal($IdShipper) {
+            $("#IdShipper").val($IdShipper);
+            if ($IdShipper != 0) {
+                jQuery.ajax({
+                    url: "@Url.Action("GetShipper", "Shippers")" + "?id=" + $IdShipper,
+                    type: "GET",
+                    datatype: "json",
+                    contenttype: "application/json",
+
+                    success: function (shipper) {
+                        $("#NombreCompania").val(shipper.NombreCompania);
+                        $("#Telefono").val(shipper.Telefono);
+                    }
+                });
+
+            }
+            else {
+                $("#NombreCompania").val("");
+                $("#Telefono").val("");
+
+            }
+            $("#EditarModal").modal('show');
+        }
+        function Guardar() {
+            var shipper = {
+                shipperid : parseInt($("#IdShipper").val()),
+                companyname: $("#NombreCompania").val(),
+                phone: $("#Telefono").val()
+
+            }
+            console.log(shipper);
+            jQuery.ajax({
+                url: "@Url.Action("AddEditShipper", "Shippers")",
+                type: "POST",
+                data: JSON.stringify(shipper),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data.response) {
+                        Tabla.ajax.reload();
+                        $("#EditarModal").modal('hide');
+
+                    }
+                    else {
+                        alert("No se pudo Guardar los cambios")
+                    }
+                }
+            });
+
+        }
+
+        function Eliminar($IdShipper) {
+            if (confirm("Esta apunto de borrar este item")) {
+                jQuery.ajax({
+                    url: "@Url.Action("DeleteShipper", "Shippers")" + "?id=" + $IdShipper,
+                    type: "GET",
+                    datatype: "json",
+                    contenttype: "application/json",
+
+                    success: function (data) {
+                        if (data.response) {
+                            Tabla.ajax.reload();
+                            
+
+                        }
+                        else {
+                            alert("No se pudo Borrar los cambios")
+                        }
+                    }
+                });
+
+            }
+
+        }
+
+    </script>
+
+
+}
+

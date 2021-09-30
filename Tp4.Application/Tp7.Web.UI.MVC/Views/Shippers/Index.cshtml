@@ -113,30 +113,62 @@
             }
             $("#EditarModal").modal('show');
         }
+        function ValidarShipper() {
+
+            let CompanyName = $("#NombreCompania").val();
+            let phone = $("#Telefono").val();
+
+
+            if (!CompanyName.length) {
+                alert("Nombre compañia no pude estar vacio");
+                return false;
+
+            } else if (CompanyName.length > 40) {
+                alert("Nombre de Compañia no puede tener mas de 40 caracteres");
+                return false;
+            } else if (!phone.length) {
+                alert("Telefono no pude estar vacio");
+                return false;
+            } else if (!phone.match(/^[0-9]+$/)) {
+                alert("Solo se puede anotar numeros telefonicos no debe haber letras");
+                return false;
+
+            } else if (phone.length > 24) {
+                alert("Telefono no puede tener mas de 24 caracteres");
+                return false;
+            }
+            return true;
+        }
         function Guardar() {
-            var shipper = {
+            if (ValidarShipper()) {
+                var shipper = {
                 shipperid : parseInt($("#IdShipper").val()),
                 companyname: $("#NombreCompania").val(),
                 phone: $("#Telefono").val()
 
-            }
-            console.log(shipper);
-            jQuery.ajax({
-                url: "@Url.Action("AddEditShipper", "Shippers")",
-                type: "POST",
-                data: JSON.stringify(shipper),
-                contentType: "application/json",
-                success: function (data) {
-                    if (data.response) {
-                        Tabla.ajax.reload();
-                        $("#EditarModal").modal('hide');
-
-                    }
-                    else {
-                        alert("No se pudo Guardar los cambios")
-                    }
                 }
-            });
+
+                console.log(shipper);
+                jQuery.ajax({
+                    url: "@Url.Action("AddEditShipper", "Shippers")",
+                    type: "POST",
+                    data: JSON.stringify(shipper),
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (data.response) {
+                            Tabla.ajax.reload();
+                            $("#EditarModal").modal('hide');
+
+                        }
+                        else {
+                            alert("No se pudo Guardar los cambios"  )
+                        }
+                    }
+                });
+
+            }
+
+
 
         }
 
@@ -151,7 +183,7 @@
                     success: function (data) {
                         if (data.response) {
                             Tabla.ajax.reload();
-                            
+
 
                         }
                         else {

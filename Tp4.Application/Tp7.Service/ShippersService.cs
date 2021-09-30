@@ -102,7 +102,16 @@ namespace Tp7.Service
 
         public Shippers GetById(int id)
         {
-            return Query.GetShipperById(id);
+            try
+            {
+                return Query.GetShipperById(id);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            
         }
     }
 }

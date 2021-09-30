@@ -65,9 +65,9 @@ namespace Tp7.Web.UI.MVC.Controllers
                 }
 
             }
-            catch (Exception)
+            catch 
             {
-
+                
                 response = false;
             }
             return Json(new { response = response }, JsonRequestBehavior.AllowGet);
@@ -80,9 +80,9 @@ namespace Tp7.Web.UI.MVC.Controllers
                 Service.DeleteShipper(id);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                ViewBag.DeleteError = e.Message; 
                 response = false;
             }
             return Json(new { response = response }, JsonRequestBehavior.AllowGet);

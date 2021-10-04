@@ -14,6 +14,11 @@ namespace Tp8.Web.MVC.StarsWars.Controllers
 {
     public class StarWarsController : Controller
     {
+        private readonly IStarWarsService Service;
+        public StarWarsController(IStarWarsService service)
+        {
+            this.Service = service;
+        }
         
 
         // GET: StarWars
@@ -27,21 +32,20 @@ namespace Tp8.Web.MVC.StarsWars.Controllers
 
 
         // GET: StarWars/Create
-        public async Task<JsonResult> GetPersonajes()
+        public  async Task<JsonResult> GetPersonajes()
         {
-            HttpClient cliente = new HttpClient();
-            var json = await cliente.GetStringAsync("https://swapi.dev/api/people/");
-            var personajes = JsonConvert.DeserializeObject<StarWarsApiViewModel>(json);
-            var personaje = personajes.Results.Select(P => new PersonajeViewModel
+            var response = await Service.GetPersonajes();
+            var lista = response.Select(R => new PersonajeViewModel
             {
-                Nombre = P.name,
-                Altura = P.Height,
-                ColorOjos = P.Eye_Color,
-                ColorPelo = P.Hair_Color,
-                Genero = P.Gender
+                Nombre = R.Nombre,
+                Altura = R.Altura,
+                ColorOjos = R.ColorOjos,
+                ColorPelo = R.ColorPelo,
+                Genero = R.Genero
 
-            }).Take(5);
-            return Json(new { lista = personaje }, JsonRequestBehavior.AllowGet);
+            }).ToList();
+           
+           return Json(new {lista = lista }, JsonRequestBehavior.AllowGet);
 
         }
         public ActionResult Create()

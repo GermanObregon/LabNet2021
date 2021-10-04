@@ -52,6 +52,9 @@
   <ItemGroup>
     <Compile Include="DTO%27S\ClienteDto.cs" />
     <Compile Include="DTO%27S\NombreClienteOrdenProductoDto.cs" />
+    <Compile Include="DTO%27S\PersonajeDto.cs" />
+    <Compile Include="DTO%27S\StarWarsApiDto.cs" />
+    <Compile Include="DTO%27S\StarWarsPersonajes.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\CustomerDemographics.cs" />
     <Compile Include="Models\Customers.cs" />

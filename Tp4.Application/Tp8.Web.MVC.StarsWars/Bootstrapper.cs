@@ -19,7 +19,8 @@ namespace Tp8.Web.MVC.StarsWars
         private static IUnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer();
-          
+            container.RegisterType<IStarWarsService, StarWarsService>();
+            container.RegisterType<IStarWarsQuery, StarWarsQuery>();
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers

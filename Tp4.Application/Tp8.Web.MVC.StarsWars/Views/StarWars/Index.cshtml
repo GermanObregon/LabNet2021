@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row m-4">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                Api StarWars
+            </div>
+            <div class="card-body">
+                <table id="tableShippers" class="display responsive nowrap " style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Altura</th>
+                            <th>Genero</th>
+                            <th>Color de Pelo</th>
+                            <th>Color ded Ojos</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var Tabla;
+        $(document).ready(function () {
+            Tabla = $('#tableShippers').DataTable({
+                "ajax": {
+                    "url": "@Url.Action("GetPersonajes" , "StarWars")",
+                    "type": "GET",
+                    "datatype": "json",
+                    "dataSrc" : "lista"
+                },
+                "columns": [
+                    { "data": "Nombre" },
+                    { "data": "Altura" },
+                    { "data": "Genero" },
+                    { "data": "ColorPelo" },
+                    {"data" : "ColorPelo"},
+                        
+                        
+                    
+
+                ],
+               
+            });
+
+
+
+        });
+        
+
+    </script>
+
+
+}
+
+

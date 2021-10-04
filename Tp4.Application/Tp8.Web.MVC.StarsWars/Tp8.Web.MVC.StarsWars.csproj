@@ -145,8 +145,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonajeViewModel.cs" />
-    <Compile Include="Models\StarWarsApiViewModel.cs" />
-    <Compile Include="Models\StarWarsPersonajesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

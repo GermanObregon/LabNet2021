@@ -21,17 +21,14 @@ namespace Tp8.Web.MVC.StarsWars.Controllers
         }
         
 
-        // GET: StarWars
+        
         public ActionResult Index()
         {
             
             return View();
         }
 
-        // GET: StarWars/Details/5
-
-
-        // GET: StarWars/Create
+       
         public  async Task<JsonResult> GetPersonajes()
         {
             var response = await Service.GetPersonajes();
@@ -48,70 +45,11 @@ namespace Tp8.Web.MVC.StarsWars.Controllers
            return Json(new {lista = lista }, JsonRequestBehavior.AllowGet);
 
         }
-        public ActionResult Create()
-        {
-            
-            return View();
-        }
+       
 
-        // POST: StarWars/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+       
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: StarWars/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: StarWars/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: StarWars/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: StarWars/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
+      
     }
 }

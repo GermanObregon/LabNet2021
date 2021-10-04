@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
+
 using System.Web.Http;
-using System.Web.Http.Results;
-using System.Web.Mvc;
-using Tp4.AccesData.Command;
-using Tp4.AccesData.Command.Repository;
-using Tp4.AccesData.Queries;
-using Tp4.AccesData.Queries.Repository;
+
 using Tp4.Domain.Models;
 using Tp7.Service;
 
-using Newtonsoft.Json;
+
 using Tp8.Web.Api.Models.Response;
 using Tp8.Web.Api.Models.Request;
 
 namespace Tp8.Web.Api.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ShippersController : ApiController
     {
         private readonly IShippersService Service;
-        
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="service"></param>
         public ShippersController(IShippersService service)
         {
             
             this.Service = service;
         }
-       
+       // GET: api/Shippers
+       /// <summary>
+       /// Listado de Shippers
+       /// </summary>
+       /// <returns></returns>
         public List<ShipperResponse> GetShippers()
         {
             var shippersList = Service.GetAllShippers().Select(S => new ShipperResponse
@@ -42,7 +47,12 @@ namespace Tp8.Web.Api.Controllers
 
         }
 
-       
+        // GET: api/Shippers/{id}
+        /// <summary>
+        /// Obtener Shipper por Id
+        /// </summary>
+        /// <param name="id">Id del Elemento por Route Param</param>
+        /// <returns></returns>
         public IHttpActionResult GetShipper(int id)
         {
             try
@@ -66,7 +76,12 @@ namespace Tp8.Web.Api.Controllers
          
         }
 
-       
+        //POST: api/Shippers
+        /// <summary>
+        /// Crear un Shipper
+        /// </summary>
+        /// <param name="shipperRequest">Json From body</param>
+        /// <returns></returns>
         public IHttpActionResult CreateShipper([FromBody] ShipperRequest shipperRequest)
         {
             try
@@ -89,7 +104,13 @@ namespace Tp8.Web.Api.Controllers
             
         }
 
-        
+        //PUT: api/Shippers/{id}
+        /// <summary>
+        /// Editar un Shipper
+        /// </summary>
+        /// <param name="id">Id del Elemento por Route Param</param>
+        /// <param name="shipperRequest">Json From body</param>
+        /// <returns></returns>
         public IHttpActionResult UpdateShipper(int id, [FromBody] ShipperRequest shipperRequest)
         {
             try
@@ -108,11 +129,16 @@ namespace Tp8.Web.Api.Controllers
             catch (Exception e)
             {
 
-                return Content(HttpStatusCode.BadRequest, e.Message);
+                return Content(HttpStatusCode.NotFound, e.Message);
             }
         }
+        // DELETE: api/Shippers/{id}
+        /// <summary>
+        /// Borrar un Shipper por Id
+        /// </summary>
+        /// <param name="id">Id del Elemento por Route Param</param>
+        /// <returns></returns>
 
-        
         public IHttpActionResult Delete(int id)
         {
             try

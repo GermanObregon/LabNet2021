@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp7.Service", "Tp7.Service\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp7.Web.UI.MVC", "Tp7.Web.UI.MVC\Tp7.Web.UI.MVC.csproj", "{2D8F5967-6A90-4B42-910F-8D859524E606}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tp8.Web.Api", "Tp8.Web.Api\Tp8.Web.Api.csproj", "{635C2FA0-4B7E-468D-A990-856D13053C1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,12 +41,16 @@ Global
 		{2D8F5967-6A90-4B42-910F-8D859524E606}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D8F5967-6A90-4B42-910F-8D859524E606}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D8F5967-6A90-4B42-910F-8D859524E606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635C2FA0-4B7E-468D-A990-856D13053C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635C2FA0-4B7E-468D-A990-856D13053C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635C2FA0-4B7E-468D-A990-856D13053C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635C2FA0-4B7E-468D-A990-856D13053C1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 		SolutionGuid = {E5F73910-E56C-4868-8930-683CF1B82AB2}
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal

@@ -19,12 +19,12 @@ namespace Tp4.AccesData.Queries
         {
             try
             {
-                return Contexto.Shippers.Find(id);
+                return Contexto.Shippers.Where(S => S.ShipperID == id).First();
             }
-            catch (Exception)
+            catch (Exception )
             {
 
-                throw new Exception("Hubo un error al buscar el id");
+                throw new Exception("No se encontro el elemento");
             }
             
         }

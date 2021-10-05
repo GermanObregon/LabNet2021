@@ -36,8 +36,8 @@ namespace Tp8.Web.MVC.StarsWars.Controllers
             {
                 Nombre = R.Nombre,
                 Altura = R.Altura,
-                ColorOjos = R.ColorOjos,
                 ColorPelo = R.ColorPelo,
+                ColorOjos = R.ColorOjos,
                 Genero = R.Genero
 
             }).ToList();

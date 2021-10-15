@@ -11,12 +11,14 @@ using Tp7.Service;
 
 using Tp8.Web.Api.Models.Response;
 using Tp8.Web.Api.Models.Request;
+using System.Web.Http.Cors;
 
 namespace Tp8.Web.Api.Controllers
 {
     /// <summary>
     /// 
     /// </summary>
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods:"*")]
     public class ShippersController : ApiController
     {
         private readonly IShippersService Service;

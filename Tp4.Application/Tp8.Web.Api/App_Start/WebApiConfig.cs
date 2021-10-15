@@ -26,6 +26,7 @@ namespace Tp8.Web.Api
             config.DependencyResolver = new UnityResolver(container);
             // Rutas de API web
             config.MapHttpAttributeRoutes();
+            config.EnableCors();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

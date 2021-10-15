@@ -1,0 +1,42 @@
+
+<div class="conteiner">
+
+
+  <div class="row d-flex justify-content-center">
+
+
+    <div class="col-lg-8 mt-3  ">
+
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Compania</th>
+            <th scope="col">Telefono</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Entryshippers ; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{item.NombreCompania}}</td>
+            <td>{{item.Telefono}}</td>
+            <td>
+              <button mat-mini-fab color="warn" aria-label="delete" (click)="borrarItem(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button class="m-1" mat-mini-fab color="primary" aria-label="edit" (click)="sendItemEdit(i)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+
+</div>
